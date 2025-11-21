@@ -1,0 +1,15 @@
+.sb-root { position:fixed; left:0; top:0; bottom:0; width:80px; background: linear-gradient(180deg,#fffaf6, #fff7f0); border-right:1px solid rgba(0,0,0,0.04); padding:18px 8px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; }
+.sb-nav { display:flex; flex-direction:column; gap:14px; margin-top:32px; align-items:center; }
+.sb-item { width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:0; background:transparent; border:none; cursor:pointer; transition:transform 140ms ease, background 140ms ease; }
+.sb-item:hover { transform:translateX(6px); background:rgba(102,161,90,0.06); }
+.sb-item.active { background:rgba(107,63,43,0.1); transform:translateX(6px); }
+.sb-item.active:hover { background:rgba(107,63,43,0.15); }
+.sb-icon { width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
+
+/* Tooltip */
+.sb-tooltip { position: absolute; left: 92px; background: #6b3f2b; color: #fff; padding:6px 10px; border-radius:0; font-weight:700; font-size:13px; white-space:nowrap; opacity:0; transform:translateX(-6px); transition:opacity 120ms ease, transform 120ms ease; pointer-events:none; }
+.sb-item { position:relative; }
+.sb-item:hover .sb-tooltip { opacity:1; transform:translateX(0); }
+.sb-tooltip::after { content: ''; position:absolute; left:-6px; top:50%; transform:translateY(-50%); border-width:6px; border-style:solid; border-color: transparent #6b3f2b transparent transparent; }
+
+@media (max-width:900px){ .sb-root{display:none;} }
