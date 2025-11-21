@@ -10,8 +10,19 @@ const PORT = process.env.PORT || 5000;
 // connect to MongoDB
 connectDB();
 
+// middleware - Update CORS to allow your Vercel domain
+app.use(cors({
+  origin: [
+    'http://localhost:3000', // for local development
+    'https://elewand-book2-kl0o1gfso-shalini-grs-projects.vercel.app', // your Vercel URL
+    'https://elewand-book2.onrender.com' // your backend URL (for testing)
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // middleware
-app.use(cors());
 app.use(express.json());
 
 // routes
